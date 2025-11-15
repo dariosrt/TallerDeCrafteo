@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Taller de crafteo</title>
+</head>
+<body>
+    <!-- Subir el port folio de github esta entrega -->
+    <h1>Taller de crafteo mágico</h1>
+
+    <div id="gran_caja">
+        <div id="caja_inventario" class="cajas_principales">
+            <h2>Inventario</h2>
+            <div id="contenedor_items">
+                <div id="madera1" class="elemento madera" draggable="true">Madera</div>
+                <div id="madera2" class="elemento madera" draggable="true">Madera</div>
+                <div id="hierro1" class="elemento hierro" draggable="true">Hierro</div>
+                <div id="hierro3" class="elemento hierro" draggable="true">Hierro</div>
+                <div id="hierro4" class="elemento hierro" draggable="true">Hierro</div>
+                <div id="hierro5" class="elemento hierro" draggable="true">Hierro</div>
+                <div id="polvora1" class="elemento polvora" draggable="true">Pólbora</div>
+                <div id="polvora2" class="elemento polvora" draggable="true">Pólbora</div>
+                <div id="madera3" class="elemento madera" draggable="true">Madera</div>
+                <div id="polvora3" class="elemento polvora" draggable="true">Pólbora</div>
+                <div id="polvora4" class="elemento polvora" draggable="true">Pólbora</div>
+                <div id="polvora5" class="elemento polvora" draggable="true">Pólbora</div>
+            </div>
+        <h1 id="mensaje_vacio" class="lleno">Almacen Vaciado</h1>
+
+
+        </div>
+        <div id="caja_estaciones_trabajo" class="cajas_principales">
+            <h2>Taller de trabajo</h2>
+            <div class="estacion_trabajo" id="forja">
+                <h3>Forja</h3>
+                <p>Inserta hierro</p>
+            </div>
+            <div class="estacion_trabajo" id="banco">
+                <h3>Banco carpintero</h3>
+                <p>Inserta madera</p>
+            </div>
+            <div class="estacion_trabajo" id="mesa">
+                <h3>Mesa de alquimia</h3>
+                <p>Inserta polvora</p>
+            </div>
+        </div>
+        <div id="caja_almacen_productos" class="cajas_principales">
+            <h2>Almacén de productos</h2>
+            <div class="info_elementos">
+                <p>Lingotes de acero</p>
+                <img src="imgs/lingotes.webp" alt="lingotes">
+                <span id="num_lingotes">0</span>
+            </div>
+            <div class="info_elementos">
+                <p>Flechas</p>
+                <img src="imgs/flechas.webp" alt="flechas">
+                <span id="num_flechas">0</span>
+            </div>
+            <div class="info_elementos">
+                <p>Bombas</p>
+                <img src="imgs/bomba.webp" alt="bombas">
+                <span id="num_bombas">0</span>
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+</html>

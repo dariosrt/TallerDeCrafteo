@@ -1,0 +1,126 @@
+
+
+
+body{
+    background-color: rgb(206, 223, 223);
+    display: grid;
+    
+
+}
+
+h1{
+    justify-self: center;
+}
+
+#gran_caja{
+    display: flex;
+    justify-content: space-evenly;
+    height: 600px;
+
+}
+
+.cajas_principales{
+    width: 300px;
+    height: 100%;
+
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 4px;
+    justify-items: center;
+
+    display: grid;
+    align-items: center;
+
+}
+
+#caja_inventario{
+    align-items: stretch;
+}
+
+#contenedor_items{
+    height: 95%;
+    width: 95%;
+    overflow: auto;
+}
+
+.elemento{
+    width: 200px;
+    height: 30px;
+
+    border: 2px solid black;
+    border-radius: 4px;
+
+    background-color: rgba(128, 128, 128, 0.326);
+    margin: 12%;
+}
+
+
+
+.estacion_trabajo{
+    border: 2px #8080808a dashed;
+    border-radius: 4px;
+    width: 75%;
+    height: 80%;
+
+    transition: 0.2s linear;
+}
+
+
+
+.info_elementos{
+    display: flex;
+    background-color: rgb(228, 228, 228);
+    border: 2px solid black;
+    border-radius: 4px;
+    width: 80%;
+    height: 50%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.info_elementos > *{
+    margin: 4px;
+}
+
+span{
+    background-color: rgb(255, 255, 255);
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: 20px;
+    height: 22px;
+    text-align: center;
+}
+
+
+.valida{
+    background-color: rgb(132, 212, 132);
+    width: 80%;
+    /* transform: rotateZ(360deg); */
+    height: 85%;
+}
+
+.invalida{
+    background-color: rgb(212, 132, 132);
+    /* width: 70%;
+    transform: rotateZ(360deg);
+    height: 75%; */
+}
+
+p{
+    width: 80px;
+}
+img{
+    width: 20%;
+
+}
+
+
+.lleno{
+    display: none;
+}
+.vacio{
+    display: block;
+}
