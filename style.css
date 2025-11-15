@@ -44,16 +44,24 @@ h1{
 }
 
 .elemento{
+    display: flex;
     width: 200px;
     height: 30px;
+    padding: 10px;
 
     border: 2px solid black;
     border-radius: 4px;
 
     background-color: rgba(128, 128, 128, 0.326);
     margin: 12%;
+
+    justify-content: space-evenly;
+    align-items: center;
 }
 
+/* .elemento > *{
+    position: absolute;
+} */
 
 
 .estacion_trabajo{
@@ -63,8 +71,12 @@ h1{
     height: 80%;
 
     transition: 0.2s linear;
+    justify-items: center;
 }
 
+.estacion_trabajo > p{
+    width: auto;
+}
 
 
 .info_elementos{
@@ -115,6 +127,10 @@ p{
 img{
     width: 20%;
 
+}
+.imgs_items{
+    width: 20%;
+    position: absolute;
 }
 
 
