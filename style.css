@@ -2,7 +2,8 @@
 
 
 body{
-    background-color: rgb(206, 223, 223);
+    /* background-color: rgb(206, 223, 223); */
+    background-image: url(imgs/fondo.gif);
     display: grid;
     
 
@@ -10,6 +11,17 @@ body{
 
 h1{
     justify-self: center;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+p{
+    width: 80px;
+}
+img{
+    width: 20%;
+
 }
 
 #gran_caja{
@@ -24,8 +36,11 @@ h1{
     height: 100%;
 
     background-color: white;
+    /* background-image: url(imgs/textura_cristal.avif);
+    background-size: auto; */
+        
     border: 2px solid black;
-    border-radius: 4px;
+    border-radius: 8px;
     justify-items: center;
 
     display: grid;
@@ -33,9 +48,17 @@ h1{
 
 }
 
+.cristal{
+    position: absolute;
+
+}
+
+
 #caja_inventario{
     align-items: stretch;
 }
+
+
 
 #contenedor_items{
     height: 95%;
@@ -50,7 +73,7 @@ h1{
     padding: 10px;
 
     border: 2px solid black;
-    border-radius: 4px;
+    border-radius: 8px;
 
     background-color: rgba(128, 128, 128, 0.326);
     margin: 12%;
@@ -59,14 +82,12 @@ h1{
     align-items: center;
 }
 
-/* .elemento > *{
-    position: absolute;
-} */
+
 
 
 .estacion_trabajo{
     border: 2px #8080808a dashed;
-    border-radius: 4px;
+    border-radius: 8px;
     width: 75%;
     height: 80%;
 
@@ -83,7 +104,7 @@ h1{
     display: flex;
     background-color: rgb(228, 228, 228);
     border: 2px solid black;
-    border-radius: 4px;
+    border-radius: 8px;
     width: 80%;
     height: 50%;
     justify-content: space-around;
@@ -97,7 +118,7 @@ h1{
 span{
     background-color: rgb(255, 255, 255);
     border: 2px solid black;
-    border-radius: 4px;
+    border-radius: 8px;
     padding: 5px;
     font-size: 20px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -110,27 +131,21 @@ span{
 .valida{
     background-color: rgb(132, 212, 132);
     width: 80%;
-    /* transform: rotateZ(360deg); */
     height: 85%;
 }
 
 .invalida{
     background-color: rgb(212, 132, 132);
-    /* width: 70%;
-    transform: rotateZ(360deg);
-    height: 75%; */
 }
 
-p{
-    width: 80px;
-}
-img{
-    width: 20%;
 
-}
 .imgs_items{
     width: 20%;
     position: absolute;
+}
+
+#mensaje_vacio{
+    border: none;
 }
 
 
