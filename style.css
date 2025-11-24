@@ -4,6 +4,7 @@
 body{
     /* background-color: rgb(206, 223, 223); */
     background-image: url(imgs/fondo.gif);
+    background-position: inherit;
     display: grid;
     
 

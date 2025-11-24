@@ -74,11 +74,17 @@ polvoraS.forEach(polvora => {
 
 
 
+/*
+Moviendo el prevent default fuera de la comprobación de si el elemento es válido o no en el if
+para que afecte a todos los elementos, hace que pueda eliminar el elemento
 
+y solo tendré que comprobar en el drag over con el mismo método que elementos son válidos para añadirlos 
+o no al almacén correspondiente 
+*/
 
 estacion_forja.addEventListener('dragover', e => {
+    e.preventDefault();
     if(validarElemento(e.currentTarget.id, elemento)){
-        e.preventDefault();
         console.log("se puede insertar elemento");
         e.currentTarget.classList.remove("invalida");
         e.currentTarget.classList.add("valida");
@@ -94,9 +100,14 @@ estacion_forja.addEventListener('dragleave', e => {
 estacion_forja.addEventListener('drop', e =>{
     e.preventDefault();
     estacion_forja.classList.remove("invalida", "valida");
+    if(validarElemento(e.currentTarget.id, elemento)){
+        let sum_contador = parseInt(document.getElementById("num_lingotes").textContent)+1;
+        document.getElementById("num_lingotes").textContent = sum_contador;
+    }
+    else{
+        console.log("Error. \nEl elemento no es el que corresponde");
+    }
     document.getElementById(elemento).remove();
-    let sum_contador = parseInt(document.getElementById("num_lingotes").textContent)+1;
-    document.getElementById("num_lingotes").textContent = sum_contador;
 
     comprobarEstadoAlmacen();
 });
@@ -105,8 +116,8 @@ estacion_forja.addEventListener('drop', e =>{
 
 
 estacion_banco.addEventListener('dragover', e => {
+    e.preventDefault();
     if(validarElemento(e.currentTarget.id, elemento)){
-        e.preventDefault();
         console.log("se puede insertar elemento");
         e.currentTarget.classList.remove("invalida");
         e.currentTarget.classList.add("valida");
@@ -122,9 +133,15 @@ estacion_banco.addEventListener('dragleave', e => {
 estacion_banco.addEventListener('drop', e =>{
     e.preventDefault();
     estacion_banco.classList.remove("invalida", "valida");
+    if(validarElemento(e.currentTarget.id, elemento)){
+        let sum_contador = parseInt(document.getElementById("num_flechas").textContent)+1;
+        document.getElementById("num_flechas").textContent = sum_contador;
+    }
+    else{
+        console.log("Error. \nEl elemento no es el que corresponde");
+    }
+
     document.getElementById(elemento).remove();
-    let sum_contador = parseInt(document.getElementById("num_flechas").textContent)+1;
-    document.getElementById("num_flechas").textContent = sum_contador;
 
     comprobarEstadoAlmacen();
 });
@@ -134,13 +151,14 @@ estacion_banco.addEventListener('drop', e =>{
 
 
 estacion_mesa.addEventListener('dragover', e => {
+    e.preventDefault();
     if(validarElemento(e.currentTarget.id, elemento)){
-        e.preventDefault();
         console.log("se puede insertar elemento");
         e.currentTarget.classList.remove("invalida");
         e.currentTarget.classList.add("valida");
     }
     else{
+
         e.currentTarget.classList.remove("valida");
         e.currentTarget.classList.add("invalida");
     }
@@ -151,9 +169,15 @@ estacion_mesa.addEventListener('dragleave', e => {
 estacion_mesa.addEventListener('drop', e =>{
     e.preventDefault();
     estacion_mesa.classList.remove("invalida", "valida");
+    if(validarElemento(e.currentTarget.id, elemento)){
+        let sum_contador = parseInt(document.getElementById("num_bombas").textContent)+1;
+        document.getElementById("num_bombas").textContent = sum_contador;
+
+    }
+    else{
+        console.log("Error. \nEl elemento no es el que corresponde");
+    }
     document.getElementById(elemento).remove();
-    let sum_contador = parseInt(document.getElementById("num_bombas").textContent)+1;
-    document.getElementById("num_bombas").textContent = sum_contador;
 
     comprobarEstadoAlmacen();
 });
@@ -184,6 +208,131 @@ function comprobarEstadoAlmacen(){
 
 
 
+
+function mostr(elem){
+    
+    let numeros = [];
+    elem.forEach(elemento => {
+        let esd = elemento.getAttribute("id");
+        numeros.push(parseInt(esd.at(-1)))
+        // console.log(esd)
+        // console.log(esd.at(-1))
+    });
+    console.log(numeros)
+    return numeros
+}
+
+
+function nuevo_elemento(){
+    let nombre = document.getElementById("valor_input").value;
+
+    if(nombre === "polvora"){
+        let array_posiciones = mostr(polvoraS)
+        let nueva_polvora = document.createElement("div");
+
+        nueva_polvora.setAttribute("id", crearId(array_posiciones, "polvora"));
+        nueva_polvora.className = "elemento polvora";
+        nueva_polvora.setAttribute("dragable", "true");
+
+        let texto = document.createElement("p");
+        texto.textContent = "Polvora";
+
+        let imagen = document.createElement("img");
+        imagen.setAttribute("src", "imgs/polvora.webp");
+        imagen.setAttribute("alt", "imgs_items");
+
+        nueva_polvora.appendChild(texto);
+        nueva_polvora.appendChild(imagen);
+
+        document.getElementById("contenedor_items").appendChild(nueva_polvora)
+        // document.set
+        // caja_elementos.appendChild(nueva_polvora);
+        console.log("Se ha añadido 1 polvora")
+    }
+    else if(nombre === "madera"){
+        let array_posiciones = mostr(maderaS)
+        let nueva_madera = document.createElement("div");
+
+        nueva_madera.setAttribute("id", crearId(array_posiciones, "madera"));
+        nueva_madera.className = "elemento madera";
+        nueva_madera.setAttribute("dragable", "true");
+
+        let texto = document.createElement("p");
+        texto.textContent = "Madera";
+
+        let imagen = document.createElement("img");
+        imagen.setAttribute("src", "imgs/madera.webp");
+        imagen.setAttribute("alt", "imgs_items");
+
+        nueva_madera.appendChild(texto);
+        nueva_madera.appendChild(imagen);
+
+        document.getElementById("contenedor_items").appendChild(nueva_madera);
+        // document.set
+        // caja_elementos.appendChild(nueva_madera);
+        console.log("Se ha añadido 1 madera");
+    }
+    else if(nombre === "hierro"){
+        let array_posiciones = mostr(hierroS)
+        let nueva_hierro = document.createElement("div");
+
+        nueva_hierro.setAttribute("id", crearId(array_posiciones, "hierro"));
+        nueva_hierro.className = "elemento hierro";
+        nueva_hierro.setAttribute("dragable", "true");
+
+        let texto = document.createElement("p");
+        texto.textContent = "Hierro";
+
+        let imagen = document.createElement("img");
+        imagen.setAttribute("src", "imgs/hierro.gif");
+        imagen.setAttribute("alt", "imgs_items");
+
+        nueva_hierro.appendChild(texto);
+        nueva_hierro.appendChild(imagen);
+
+        document.getElementById("contenedor_items").appendChild(nueva_hierro);
+        // document.set
+        // caja_elementos.appendChild(nueva_hierro);
+        console.log("Se ha añadido 1 hierro");
+    }
+    else{
+        console.log("No exist ningún elemento llamado: "+nombre);
+    }
+
+}
+
+function crearId(array_posiciones, tipo){
+    for(x=0; x<100; x++){
+        if(!array_posiciones.includes(x)){
+            let nombreid = (String)(tipo+x)
+            console.log(tipo);
+            return nombreid
+        }
+    }
+
+}
+
+
+// function crearId(){
+//     let array_posiciones= mostr(polvoraS)
+//     let tipo = "polvora"
+//     for(x=0; x<100; x++){
+//         if(!array_posiciones.includes(x)){
+//             let nombreid = (String)(tipo+x)
+//             console.log(nombreid);
+//             return nombreid
+//         }
+//     }
+
+// }
+
+
+
+
+                // <div id="madera1" class="elemento madera" draggable="true">
+                //     <p>Madera</p>
+                //     <img src="imgs/madera.webp" alt="imgs_items">
+                // </div>
 
 // function Stackear(){
     
